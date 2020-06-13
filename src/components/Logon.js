@@ -9,7 +9,7 @@ class Logon extends Component {
         toHome: false,
     }
 
-    handleSelectionChanged = function(event) {
+    handleSelectedChang = function(event) {
         const userId = event.target.value;
 
         this.setState(function(previousState) {
@@ -39,18 +39,18 @@ class Logon extends Component {
 
     render() {
 
-        const { userId, toHome } = this.state;
+       const { userId, toHome } = this.state;
         const { history, users } = this.props;
         const selected = userId ? userId : -1;
-        const avatar = userId ? users[userId].avatarURL : 'placeholder.jpg';
+    //    const avatar = userId ? users[userId].avatarURL : 'placeholder.jpg';
 
 
         if(toHome) {
-            const redirect = history.location.state;
-            if (redirect != null) {
-                return <Redirect to={redirect} push={true} />
-            }
-            return <Redirect to='/' />
+          // const redirect = history.location.state;
+         //   if (redirect != null) {
+        //        return <Redirect to={redirect} push={true} />
+        //   }
+          return <Redirect to='/' />
         }
         return (
             <div>
@@ -58,12 +58,8 @@ class Logon extends Component {
             <div className='login-box'>
                 <span>Please select a user and press the logon button.</span>
                 <div className='user-select'>
-                    <img
-                        src={avatar}
-                        alt={`Avatar of ${userId}`}
-                        className='avatar'
-                    />
-                    <select value={selected} onChange={(event) => this.handleSelectionChanged(event)}>
+
+                    <select value={selected} onChange={(event) => this.handleSelectedChang(event)}>
                         <option value={-1} disabled>Select user...</option>
                         {Object.keys(users).map(function(key) {
                             return (

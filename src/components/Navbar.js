@@ -1,23 +1,28 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { setAuthedUser } from '../actions/authedUser';
 
 
 
 
 class Navbar extends Component {
+    handleLogout = () => { // Handle logout button click
+        const { dispatch } = this.props;
+        dispatch(setAuthedUser(null));
+    }
 
     render() {
 
         const { authedUser, users } = this.props
-        const avatar = authedUser ? users[authedUser].avatarURL : 'placeholder.jpg';
+      //  const avatar = authedUser ? users[authedUser].avatarURL : 'placeholder.jpg';
         const loggedOn = authedUser !== null
         return (
-            <nav className='nav'>
+            <nav>
                 <ul>
                     <li>
                         <NavLink to='/' exact activeClassName='active'>
-                            Home
+                            Dashboard
                         </NavLink>
                     </li>
                     <li>
@@ -27,26 +32,23 @@ class Navbar extends Component {
                     </li>
                     <li>
                         <NavLink to='/add' exact activeClassName='active'>
-                            New
+                            New Question
                         </NavLink>
                     </li>
                     {
                         loggedOn
                             ? <li>
-                                <NavLink to='/login' exact activeClassName='active'>
+                                <NavLink to='/logon' exact activeClassName='active'>
                                     <div className="nav-user">
-                                        Logout
-                                        <img
-                                            src={avatar}
-                                            alt={`Avatar of ${authedUser}`}
-                                            className='nav-avatar'
-                                        />
-                                        {authedUser}
+                                        <button onClick={this.handleLogout}>
+                                            Logout
+                                        </button>
+                                        <span>{authedUser}</span>
                                     </div>
                                 </NavLink>
                             </li>
                             : <li>
-                                <NavLink to='/login' exact activeClassName='active'>
+                                <NavLink to='/logon' exact activeClassName='active'>
                                     Logon
                                 </NavLink>
                             </li>

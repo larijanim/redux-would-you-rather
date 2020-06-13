@@ -13,9 +13,9 @@ class Question extends Component {
        // console.log(question[0].id)
         //<div>Question Author:{//question[0].author</div>
         //------------------
-        const answers = Object.keys(users[authedUser].answers);
-        const xy=answers.filter(xx=>(xx===this.props.question.id));
-        console.log("jjjj"+xy);
+      //  const answers = Object.keys(users[authedUser].answers);
+     //   const xy=answers.filter(xx=>(xx===this.props.question.id));
+      //  console.log("jjjj"+xy);
         const { author, timestamp}=this.props.question;
         return (
             <div>

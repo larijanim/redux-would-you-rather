@@ -17,17 +17,20 @@ class  App extends Component {
 
     render() {
         const { loggedOn } = this.props;
+        console.log('hh'+ loggedOn);
 
         return (
 
             <div>
-                <Navbar/>
+                {this.props.loggedOn
+                    ? <div>
+                        <Navbar/>
+                         Learn React_Redux
+                        <Dashboard  />
+                      </div>
 
-                Learn React_Redux
-
-                <Route path='/' exact component={Dashboard} loggedOn={loggedOn} />
-                  <Route path='/logon' exact component={Logon} />
-
+                    : <Logon />
+                }
             </div>
         );
     }
@@ -40,4 +43,4 @@ function mapStateToProps({ authedUser }) {
         loggedOn: authedUser !== null,
     };
 }
-export default connect() (App);
+export default connect(mapStateToProps) (App);
