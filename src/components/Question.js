@@ -5,7 +5,7 @@ class Question extends Component {
     render() {
         //console.log(this.props)
 
-       const { authedUser,users } = this.props;
+       const { authedUser,users, question } = this.props;
        //--------------------------when  we had just id of question
       //  console.log(id);
       //  const questionarray = Object.keys(questions).map((key) => questions[key]);
@@ -13,27 +13,30 @@ class Question extends Component {
        // console.log(question[0].id)
         //<div>Question Author:{//question[0].author</div>
         //------------------
-      //  const answers = Object.keys(users[authedUser].answers);
+        const answers = Object.keys(users[authedUser].answers);
      //   const xy=answers.filter(xx=>(xx===this.props.question.id));
-      //  console.log("jjjj"+xy);
-        const { author, timestamp}=this.props.question;
+      // console.log(answers);
+        const { author, timestamp}=question;
         return (
             <div>
-
+                {answers.indexOf(question.id)> -1 ? "hhhh":"xxxx"
+                }
                 Question Author:{author }-{timestamp}<br/>
-
-                {this.props.question.optionOne.text}<br/>
-                {this.props.question.optionOne.votes}
-                {this.props.question.optionTwo.text}<br/>
-                {this.props.question.optionTwo.votes}
+                Would you rather
+               option One: {this.props.question.optionOne.text}<br/>
+                {this.props.question.optionOne.votes}<br/>
+               Option Two: {this.props.question.optionTwo.text}<br/>
+                {this.props.question.optionTwo.votes}<br/>
+                ---------------------
             </div>
         );
     }
 }
 
-function mapStateToProps({ authedUser, users },{question}) {
-   // const question = questions[id];
+function mapStateToProps({ authedUser, users, questions },{id}) {
+  const question = questions[id];
     return {
+        question,
         authedUser,
         users,
     };
