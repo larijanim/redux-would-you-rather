@@ -1,12 +1,14 @@
 import React , {Component} from 'react';
 import {connect} from 'react-redux';
 import{handleInitialData} from "../actions/shared";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import logo from './../logo.svg';
+import { Route } from 'react-router-dom';
 import './../App.css';
 import Dashboard from "./Dashboard";
 import Logon from './Logon';
 import Navbar from "./Navbar";
+import NewQuestion from "./NewQuestion";
+import LeaderBoard from "./LeaderBoard";
+import QuestionDeial from "./QuestionDeial";
 
 class  App extends Component {
 
@@ -17,7 +19,6 @@ class  App extends Component {
 
     render() {
         const { loggedOn } = this.props;
-        console.log('hh'+ loggedOn);
 
         return (
 
@@ -25,8 +26,13 @@ class  App extends Component {
                 {this.props.loggedOn
                     ? <div>
                         <Navbar/>
-                         Learn React_Redux
-                        <Dashboard  />
+                         Learn React_Redux<br/>
+                         ---------------------
+                          <br/>
+                        <Route path='/add' exact component={NewQuestion} loggedIn={this.props.loggedOn}/>
+                        <Route path='/' exact component={Dashboard} loggedIn={this.props.loggedIn} />
+                        <Route path='/questions/:id' exact component={QuestionDeial} loggedIn={this.props.loggedIn}/>
+                        <Route  path='/leaderBoard' exact component={LeaderBoard} loggedIn={this.props.loggedIn} />
                       </div>
 
                     : <Logon />

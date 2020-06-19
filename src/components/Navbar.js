@@ -38,14 +38,14 @@ class Navbar extends Component {
                     {
                         loggedOn
                             ? <li>
-                                <NavLink to='/logon' exact activeClassName='active'>
-                                    <div className="nav-user">
+
+                                    <div>
                                         <button onClick={this.handleLogout}>
                                             Logout
                                         </button>
-                                        <span>{authedUser}</span>
+                                        <span> Current user:{authedUser}</span>
                                     </div>
-                                </NavLink>
+
                             </li>
                             : <li>
                                 <NavLink to='/logon' exact activeClassName='active'>

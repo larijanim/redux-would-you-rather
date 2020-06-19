@@ -1,26 +1,30 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Question from "./Question";
+import UnAnQuestion from "./UnAnQuestion";
+import {Link} from "react-router-dom";
 
 class Dashboard extends Component {
 
     state = {
-        shAnswered: false,
+        showVoted: false,  // tabs clicking
     }
-//<div>{question.id}-{question.optionOne.votes}</div>
-//<div>{question.id}-{question.optionTwo.votes}</div>
 
-    handleFilterClicked = ( shAnswered) => { // update state value on tab click
-        this.setState({ shAnswered });
+
+// update state  on tab click
+    handleFilterClicked = ( showVoted) => {
+        this.setState({ showVoted });
     }
 
     render() {
 
-        const { shAnswered } = this.state;
+        const { showVoted } = this.state;
         const { authedUser, questions, users } = this.props;
-        const questionsArray = Object.keys(questions).map((key) => questions[key]);
-        const answeredQuestion=Object.keys(users[authedUser].answers)
-        const unansweredQuestion = Object.keys(questions).filter(q => !answeredQuestion.includes(q))
+       // const questionsArray = Object.keys(questions).map((key) => questions[key]);
+        const votedIDbyAuthedUser=Object.keys(users[authedUser].answers);
+        const unvotedID = Object.keys(questions).filter(q => !votedIDbyAuthedUser.includes(q));
+       // const questionListVoted=questionsArray.filter(q=>q.id===(votedIDbyAuthedUser.includes(q.id)))
+      //  console.log("bbbb"+JSON.stringify(questionsArray));
         return (
           <div>
               ----- {authedUser}-----<br/>
@@ -28,23 +32,28 @@ class Dashboard extends Component {
               <button onClick={(event) => this.handleFilterClicked(true)}>Answered</button>
               <button onClick={(event) => this.handleFilterClicked(false)}>UnAnswered</button>
               </div>
-              {shAnswered === true &&
+              {showVoted === true &&
                    <div> <ul>
-                      { answeredQuestion.map((question)=>(
+                      { votedIDbyAuthedUser.map((question)=>(
 
-                          <li>   <Question id={question}/>
+                          <li>
+                              <Question id={question}/>
+                              ----------------------------
 
                           </li>
                       ))}
                   </ul></div>}
-              {shAnswered === false && <div> <ul>hhhhhh
-                      { unansweredQuestion.map((question)=>(
+              {showVoted === false &&
+                  <div>
+                      <ul>
+                          { unvotedID.map((question)=>(
 
-                          <li>   <Question id={question}/>
+                              <li>   <UnAnQuestion id={question}/>
 
-                          </li>
-                      ))}
-                  </ul></div>
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
               }
 
             </div>

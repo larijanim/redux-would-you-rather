@@ -54,10 +54,10 @@ class Logon extends Component {
         }
         return (
             <div>
-            <h3 className='center'>Logon</h3>
-            <div className='login-box'>
+            <h3 >Logon</h3>
+            <div >
                 <span>Please select a user and press the logon button.</span>
-                <div className='user-select'>
+                <div >
 
                     <select value={selected} onChange={(event) => this.handleSelectedChang(event)}>
                         <option value={-1} disabled>Select user...</option>
