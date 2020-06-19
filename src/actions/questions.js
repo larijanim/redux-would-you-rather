@@ -45,7 +45,7 @@ export function handleNewQuestion(optionOneText, optionTwoText) {
 
 }
 
-export function handleAnsweredQ(authedUser,question, answer) {
+export function handleAnsweredQ(question, answer) {
   return (dispatch, getState) =>{
     const { authedUser } = getState();
 
@@ -54,6 +54,7 @@ export function handleAnsweredQ(authedUser,question, answer) {
       qid: question,
       answer:answer,
     };
+    console.log(answerInfo);
     return saveQuestionAnswer(answerInfo)
         .then(function() { dispatch((answerQuestion(authedUser, question, answer))) })
   }

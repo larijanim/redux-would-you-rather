@@ -5,10 +5,10 @@ import {connect} from "react-redux";
 class QuestionDeial extends Component {
     render() {
         const { authedUser,users, questions } = this.props;
-        const idq=this.props.match.params.id;
+        const idquestion=this.props.match.params.id;
         const authedUserInfo = users[authedUser];
-        const question=questions[idq];
-        const{answers}=authedUserInfo;
+        const question=questions[idquestion];
+        const{answers , name}=authedUserInfo;
         const { author, timestamp, optionOne,optionTwo,id}=question;
         return (
 
@@ -18,9 +18,9 @@ class QuestionDeial extends Component {
                     Would you rather:<br/>
                     Option One: {optionOne.text}-----
                     Voted by: {optionOne.votes}<br/>
-                    Option Two: {optionTwo.text}
+                    Option Two: {optionTwo.text}-----
                     Voted by: {optionTwo.votes}<br/><br/>
-                    Your vote:{answers[idq]}
+                    Your vote:{name}-{answers[idquestion]}
                 </div>
         );
     }

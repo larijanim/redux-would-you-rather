@@ -29,10 +29,10 @@ class  App extends Component {
                          Learn React_Redux<br/>
                          ---------------------
                           <br/>
-                        <Route path='/add' exact component={NewQuestion} loggedIn={this.props.loggedOn}/>
-                        <Route path='/' exact component={Dashboard} loggedIn={this.props.loggedIn} />
-                        <Route path='/questions/:id' exact component={QuestionDeial} loggedIn={this.props.loggedIn}/>
-                        <Route  path='/leaderBoard' exact component={LeaderBoard} loggedIn={this.props.loggedIn} />
+                        <Route path='/add' exact component={NewQuestion} loggedOn={this.props.loggedOn}/>
+                        <Route path='/' exact component={Dashboard} loggedOn={this.props.loggedOn} />
+                        <Route path='/questions/:id' exact component={QuestionDeial} loggedOn={this.props.loggedOn}/>
+                        <Route  path='/leaderBoard' exact component={LeaderBoard} loggedOn={this.props.loggedOn} />
                       </div>
 
                     : <Logon />

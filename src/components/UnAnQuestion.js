@@ -14,7 +14,7 @@ class UnAnQuestion extends Component {
         console.log("props"+JSON.stringify(this.props))
         const { answerQuestion, authedUser, question,dispatch} = this.props;
         const answer = option === 1 ? 'optionOne' : 'optionTwo';
-       this.props.dispatch(handleAnsweredQ(authedUser,this.props.question.id, answer));
+       this.props.dispatch(handleAnsweredQ(this.props.question.id, answer));
         this.setState(function(previousState) {
             return {
                 ...previousState,
