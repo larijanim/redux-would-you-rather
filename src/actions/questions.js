@@ -1,8 +1,8 @@
 
-import { saveQuestionAnswer , saveQuestion } from '../utils/api'
+import { saveAnswer , saveQuestion } from '../utils/api'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
-export const ADD_ANSWER_QUESTION = 'ADD_ANSWER_QUESTION';
+export const ADD_ANSWER = 'ADD_ANSWER';
 export const ADD_QUESTION = 'ADD_QUESTION';
 
 export function receiveQuestions (questions) {
@@ -22,7 +22,7 @@ export function addQuestion(question) {
 
 export function answerQuestion(authedUser, qid, answer) {
   return {
-    type: ADD_ANSWER_QUESTION,
+    type: ADD_ANSWER,
     authedUser,
     qid,
     answer,
@@ -54,8 +54,8 @@ export function handleAnsweredQ(question, answer) {
       qid: question,
       answer:answer,
     };
-    console.log(answerInfo);
-    return saveQuestionAnswer(answerInfo)
+    console.log("zzzzz"+JSON.stringify(answerInfo));
+    return saveAnswer(answerInfo)
         .then(function() { dispatch((answerQuestion(authedUser, question, answer))) })
   }
 }

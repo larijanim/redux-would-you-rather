@@ -38,17 +38,19 @@ class NewQuestion extends Component {
         if(this.state.toUnAnQuestion)
             return <Redirect to='/' />
         return (
-            <div><span >Whould you rather: </span>
+            <div className='centered'><h3> Write New Question</h3><br/>
+            <div className='item'>
                 <form  onSubmit={(event) => this.handleSubmit(event)} >
+                    <span >Whould you rather: </span>
 
-                     <div><span >Option One: </span>
+                     <div><span className='label' >Option One: </span>
                             <textarea
                              value={this.state.optionOne}
                              onChange={(event) => this.handleChange(event, 1)}
                             />
 
                      </div>
-                      <div><span > Option Two: </span>
+                      <div><span className='label' > Option Two: </span>
                           <textarea
                               value={this.state.optionTwo}
                               onChange={(event) => this.handleChange(event, 2)}
@@ -61,6 +63,7 @@ class NewQuestion extends Component {
                             disabled={this.state.optionOne === '' || this.state.optionTwo === ''}
                         >Submit</button>
                 </form>
+            </div>
             </div>
         );
     }

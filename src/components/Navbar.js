@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { setAuthedUser } from '../actions/authedUser';
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -10,6 +11,7 @@ class Navbar extends Component {
     handleLogout = () => { // Handle logout button click
         const { dispatch } = this.props;
         dispatch(setAuthedUser(null));
+
     }
 
     render() {
@@ -17,24 +19,27 @@ class Navbar extends Component {
         const { authedUser, users } = this.props
       //  const avatar = authedUser ? users[authedUser].avatarURL : 'placeholder.jpg';
         const loggedOn = authedUser !== null
+        const userIns=users[authedUser];
+
         return (
-            <nav>
+            <nav className='nav'>
                 <ul>
                     <li>
                         <NavLink to='/' exact activeClassName='active'>
                             Dashboard
-                        </NavLink>
+                        </NavLink>|
                     </li>
                     <li>
                         <NavLink to='/leaderboard' exact activeClassName='active'>
                             Leaderboard
-                        </NavLink>
+                        </NavLink>|
                     </li>
                     <li>
                         <NavLink to='/add' exact activeClassName='active'>
                             New Question
                         </NavLink>
                     </li>
+
                     {
                         loggedOn
                             ? <li>
@@ -43,17 +48,23 @@ class Navbar extends Component {
                                         <button onClick={this.handleLogout}>
                                             Logout
                                         </button>
-                                        <span> Current user:{authedUser}</span>
+                                        <span>{authedUser} <img
+                                               src={'/'+userIns.avatarURL}
+                                               alt={`Avatar of ${userIns.name}`}
+                                                className='nav-avatar'/></span>
                                     </div>
 
                             </li>
+
                             : <li>
                                 <NavLink to='/logon' exact activeClassName='active'>
                                     Logon
                                 </NavLink>
-                            </li>
+
+                             </li>
                     }
                 </ul>
+
             </nav>
 
         );

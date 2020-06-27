@@ -46,16 +46,14 @@ class Logon extends Component {
 
 
         if(toHome) {
-          // const redirect = history.location.state;
-         //   if (redirect != null) {
-        //        return <Redirect to={redirect} push={true} />
-        //   }
+
           return <Redirect to='/' />
         }
         return (
-            <div>
+            <div className='centered'>
+                <h3> Whould You Rather Game</h3><br/>
             <h3 >Logon</h3>
-            <div >
+            <div  className='item'><br/>
                 <span>Please select a user and press the logon button.</span>
                 <div >
 
@@ -72,10 +70,11 @@ class Logon extends Component {
                     className='btn'
                     disabled={userId === null}
                     onClick={(event) => this.handleLogon(event)}
-                >
-                    Logon
+                >Logon
                 </button>
+
             </div>
+
         </div>
     );
     }

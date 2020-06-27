@@ -11,3 +11,82 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav li {
+  height: 20px;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+.nav li:last-child {
+  float: right;
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+ul {
+  padding-left: 20px;
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.nav-user {
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.nav-avatar {
+  height: 25px;
+  width: 25px;
+  border-radius: 15px;
+  margin: 0 5px 0 10px;
+}
+
+.avatar {
+  height: 70px;
+  width: 70px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.centered {
+  margin: 0 auto;
+  text-align: center;
+  width: 800px;
+}
+

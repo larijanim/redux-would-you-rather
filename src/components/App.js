@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import {connect} from 'react-redux';
 import{handleInitialData} from "../actions/shared";
-import { Route } from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import './../App.css';
 import Dashboard from "./Dashboard";
 import Logon from './Logon';
@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import NewQuestion from "./NewQuestion";
 import LeaderBoard from "./LeaderBoard";
 import QuestionDeial from "./QuestionDeial";
+import NotFound from "./NotFound";
 
 class  App extends Component {
 
@@ -26,16 +27,17 @@ class  App extends Component {
                 {this.props.loggedOn
                     ? <div>
                         <Navbar/>
-                         Learn React_Redux<br/>
-                         ---------------------
-                          <br/>
+                       <br/>
+                       <br/>
                         <Route path='/add' exact component={NewQuestion} loggedOn={this.props.loggedOn}/>
                         <Route path='/' exact component={Dashboard} loggedOn={this.props.loggedOn} />
                         <Route path='/questions/:id' exact component={QuestionDeial} loggedOn={this.props.loggedOn}/>
                         <Route  path='/leaderBoard' exact component={LeaderBoard} loggedOn={this.props.loggedOn} />
+                        <Route path='/notFound' exact component={NotFound} loggedOn={this.props.loggedOn} />
                       </div>
 
                     : <Logon />
+
                 }
             </div>
         );
