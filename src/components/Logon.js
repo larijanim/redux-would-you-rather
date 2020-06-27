@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setAuthedUser, clearAuthedUser } from '../actions/authedUser';
+import { setAuthedUser } from '../actions/authedUser';
 
 class Logon extends Component {
     state = {
@@ -54,7 +54,7 @@ class Logon extends Component {
                 <h3> Whould You Rather Game</h3><br/>
             <h3 >Logon</h3>
             <div  className='item'><br/>
-                <span>Please select a user and press the logon button.</span>
+                <span>Please select a user and logon .</span>
                 <div >
 
                     <select value={selected} onChange={(event) => this.handleSelectedChang(event)}>

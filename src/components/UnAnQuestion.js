@@ -12,7 +12,7 @@ class UnAnQuestion extends Component {
 
     handleOptionClicked = (event, option)=> {
         event.preventDefault();
-        console.log("props"+JSON.stringify(this.props))
+       // console.log("props"+JSON.stringify(this.props))
         const { answerQuestion, authedUser, question,dispatch} = this.props;
         const answer = option === 1 ? 'optionOne' : 'optionTwo';
        this.props.dispatch(handleAnsweredQ(this.props.question.id, answer));

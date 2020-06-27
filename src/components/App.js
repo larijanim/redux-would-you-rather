@@ -23,7 +23,7 @@ class  App extends Component {
 
         return (
 
-            <div>
+            <div className='container'>
                 {this.props.loggedOn
                     ? <div>
                         <Navbar/>

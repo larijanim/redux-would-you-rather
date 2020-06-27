@@ -54,7 +54,7 @@ export function handleAnsweredQ(question, answer) {
       qid: question,
       answer:answer,
     };
-    console.log("zzzzz"+JSON.stringify(answerInfo));
+   // console.log("zzzzz"+JSON.stringify(answerInfo));
     return saveAnswer(answerInfo)
         .then(function() { dispatch((answerQuestion(authedUser, question, answer))) })
   }

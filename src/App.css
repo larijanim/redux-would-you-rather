@@ -45,9 +45,10 @@
 .nav ul {
   display: flex;
   flex-direction: row;
+  position: relative;
   justify-content: flex-start;
   text-decoration: none;
-  position: relative;
+  background: gainsboro;
 }
 
 .nav li {
@@ -95,7 +96,7 @@ li {
 .centered {
   margin: 0 auto;
   text-align: center;
-  width: 800px;
+
 }
 
 .list {

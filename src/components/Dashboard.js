@@ -25,11 +25,11 @@ class Dashboard extends Component {
        // const questionsArray = Object.keys(questions).map((key) => questions[key]);
 
         const votedIDbyAuthedUser=Object.keys(users[authedUser].answers).sort((a,b)=>questions[b].timestamp-questions[a].timestamp);;
-        console.log("aa"+votedIDbyAuthedUser);
+        //console.log("aa"+votedIDbyAuthedUser);
         const unvotedID = Object.keys(questions).filter(q => !votedIDbyAuthedUser.includes(q)).sort((a,b)=>questions[b].timestamp-questions[a].timestamp);;
 
         return (
-          <div cassName='container'>
+          <div className='container'>
               <h3 className='centered'>Choose:</h3>
               <div  className='centered'>
               <button onClick={(event) => this.handleFilterClicked(true)} className={showVoted?'active':'body'} >Answered</button>
@@ -37,9 +37,9 @@ class Dashboard extends Component {
               </div>
               {showVoted === true &&
                    <div className='list'> <ul>
-                      { votedIDbyAuthedUser.map((question)=>(
+                      { votedIDbyAuthedUser.map((question ,i)=>(
 
-                          <li>
+                          <li key={i}>
                               <Question id={question}/>
 
                           </li>
@@ -48,9 +48,9 @@ class Dashboard extends Component {
               {showVoted === false &&
                   <div className='list'>
                       <ul>
-                          { unvotedID.map((question)=>(
+                          { unvotedID.map((question ,i)=>(
 
-                              <li>   <UnAnQuestion id={question}/>
+                              <li key={i}>   <UnAnQuestion id={question}/>
 
                               </li>
                           ))}

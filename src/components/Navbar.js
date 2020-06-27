@@ -27,12 +27,12 @@ class Navbar extends Component {
                     <li>
                         <NavLink to='/' exact activeClassName='active'>
                             Dashboard
-                        </NavLink>|
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to='/leaderboard' exact activeClassName='active'>
                             Leaderboard
-                        </NavLink>|
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to='/add' exact activeClassName='active'>
@@ -40,6 +40,9 @@ class Navbar extends Component {
                         </NavLink>
                     </li>
 
+                    <li>
+                        <span > Whould you Rather</span>
+                    </li>
                     {
                         loggedOn
                             ? <li>
@@ -48,7 +51,7 @@ class Navbar extends Component {
                                         <button onClick={this.handleLogout}>
                                             Logout
                                         </button>
-                                        <span>{authedUser} <img
+                                        <span> {authedUser} <img
                                                src={'/'+userIns.avatarURL}
                                                alt={`Avatar of ${userIns.name}`}
                                                 className='nav-avatar'/></span>
