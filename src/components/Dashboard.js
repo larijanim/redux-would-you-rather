@@ -2,18 +2,16 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Question from "./Question";
 import UnAnQuestion from "./UnAnQuestion";
-import {Link} from "react-router-dom";
 import './../App.css';
 
 
 class Dashboard extends Component {
 
     state = {
-        showVoted: false,  // tabs clicking
+        showVoted: false,
     }
 
 
-// update state  on tab click
     handleFilterClicked = ( showVoted) => {
         this.setState({ showVoted });
     }
@@ -22,10 +20,9 @@ class Dashboard extends Component {
 
         const { showVoted } = this.state;
         const { authedUser, questions, users } = this.props;
-       // const questionsArray = Object.keys(questions).map((key) => questions[key]);
+
 
         const votedIDbyAuthedUser=Object.keys(users[authedUser].answers).sort((a,b)=>questions[b].timestamp-questions[a].timestamp);;
-        //console.log("aa"+votedIDbyAuthedUser);
         const unvotedID = Object.keys(questions).filter(q => !votedIDbyAuthedUser.includes(q)).sort((a,b)=>questions[b].timestamp-questions[a].timestamp);;
 
         return (

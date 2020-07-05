@@ -17,7 +17,6 @@ class Navbar extends Component {
     render() {
 
         const { authedUser, users } = this.props
-      //  const avatar = authedUser ? users[authedUser].avatarURL : 'placeholder.jpg';
         const loggedOn = authedUser !== null
         const userIns=users[authedUser];
 

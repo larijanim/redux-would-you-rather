@@ -8,7 +8,7 @@ import Logon from './Logon';
 import Navbar from "./Navbar";
 import NewQuestion from "./NewQuestion";
 import LeaderBoard from "./LeaderBoard";
-import QuestionDeial from "./QuestionDeial";
+import QuestionDetial from "./QuestionDeial";
 import NotFound from "./NotFound";
 
 class  App extends Component {
@@ -31,7 +31,7 @@ class  App extends Component {
                        <br/>
                         <Route path='/add' exact component={NewQuestion} loggedOn={this.props.loggedOn}/>
                         <Route path='/' exact component={Dashboard} loggedOn={this.props.loggedOn} />
-                        <Route path='/questions/:id' exact component={QuestionDeial} loggedOn={this.props.loggedOn}/>
+                        <Route path='/questions/:id' exact component={QuestionDetial} loggedOn={this.props.loggedOn}/>
                         <Route  path='/leaderBoard' exact component={LeaderBoard} loggedOn={this.props.loggedOn} />
                         <Route path='/notFound' exact component={NotFound} loggedOn={this.props.loggedOn} />
                       </div>

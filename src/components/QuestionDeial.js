@@ -3,14 +3,13 @@ import {connect} from "react-redux";
 import Moment from "moment";
 import {Redirect} from "react-router-dom";
 
-class QuestionDeial extends Component {
+class QuestionDetial extends Component {
     render() {
         const { authedUser,users, questions } = this.props;
         const idquestion=this.props.match.params.id;
         const authedUserInfo = users[authedUser];
         const question=questions[idquestion];
         if(question == null) {
-           // console.log("fffff"+JSON.stringify(question));
             return <Redirect from='*' to='/notFound' />
         }
         const{answers , name}=authedUserInfo;
@@ -60,4 +59,4 @@ function mapStateToProps({ authedUser,users, questions }) {
     };
 }
 
-export default connect(mapStateToProps)(QuestionDeial);
+export default connect(mapStateToProps)(QuestionDetial);
