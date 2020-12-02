@@ -2,14 +2,37 @@ import React , {Component} from 'react';
 import {connect} from 'react-redux';
 import{handleInitialData} from "../actions/shared";
 import {Link, Route} from 'react-router-dom';
+import { ThemeProvider as MuiThemeProvider }from '@material-ui/core/styles';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import './../App.css';
 import Dashboard from "./Dashboard";
 import Logon from './Logon';
 import Navbar from "./Navbar";
+import Navbar2 from "./Navbar22";
 import NewQuestion from "./NewQuestion";
 import LeaderBoard from "./LeaderBoard";
 import QuestionDetial from "./QuestionDeial";
 import NotFound from "./NotFound";
+
+const theme= createMuiTheme({
+    palette: {
+        primary: {
+            light:'#33c9dc',
+             main: '#00bcd4',
+             dark:'#008394',
+        contrastText:'#fff'},
+        secondary:{
+            light:'#ff6333',
+            main: '#ff3d00',
+            dark:'#b22a00',
+            contrastText:'#fff'},
+    },
+    typography:{
+        useNextVariants:true
+    },
+    
+});
+
 
 class  App extends Component {
 
@@ -22,12 +45,13 @@ class  App extends Component {
         const { loggedOn } = this.props;
 
         return (
+<MuiThemeProvider theme={theme}>
 
-            <div className='container'>
+                <Navbar2/>
                 {this.props.loggedOn
-                    ? <div>
-                        <Navbar/>
-                       <br/>
+                    ? <div className='containerDiv'>
+
+                        <br/>
                        <br/>
                         <Route path='/add' exact component={NewQuestion} loggedOn={this.props.loggedOn}/>
                         <Route path='/' exact component={Dashboard} loggedOn={this.props.loggedOn} />
@@ -36,10 +60,13 @@ class  App extends Component {
                         <Route path='/notFound' exact component={NotFound} loggedOn={this.props.loggedOn} />
                       </div>
 
-                    : <Logon />
+                    : <div className='containerDiv'>
+                        <Logon />
+                    </div>
 
                 }
-            </div>
+
+</MuiThemeProvider>
         );
     }
 };

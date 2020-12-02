@@ -1,7 +1,7 @@
 # Reactnd-project-myreads-starter
 #React Project
 
-This is a first project from a NanodegreeReact course in Udacity. 
+This is a second project from a NanodegreeReact course in Udacity. 
 Whould you rather  App is a sigle page app for create poll, vote and compete in leaderboard. It has a Dashboard that after logon is accessible. Questions are categorised as Answered and Unanswered. User after logon and answer questions , have access to see votes.
 there is a Leaderborad page for shwoing report of user's activity.
 
@@ -17,7 +17,7 @@ there is a Leaderborad page for shwoing report of user's activity.
 * Concept of data immutability
 * State normalization
 * Functional component
-* Using API to work with database
+* Using API to work with Json data
 * Using map, filter, sort in JS
 * Using objects in JS
 * Using React Router

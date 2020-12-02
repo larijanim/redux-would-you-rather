@@ -3,20 +3,28 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { setAuthedUser } from '../actions/authedUser';
 import { Redirect } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Route, withRouter
+} from 'react-router-dom';
+
 
 
 
 
 class Navbar extends Component {
+
+
     handleLogout = () => { // Handle logout button click
         const { dispatch } = this.props;
+        this.props.history.push('/');
         dispatch(setAuthedUser(null));
 
     }
 
     render() {
 
-        const { authedUser, users } = this.props
+        const { authedUser, users  } = this.props
         const loggedOn = authedUser !== null
         const userIns=users[authedUser];
 
@@ -80,4 +88,4 @@ function mapStateToProps({ authedUser, users }) {
 }
 
 
-export default connect(mapStateToProps)(Navbar);
+export default withRouter(connect(mapStateToProps)(Navbar));
